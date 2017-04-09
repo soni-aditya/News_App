@@ -86,4 +86,9 @@
             android:textColor="#ff4d58"
             android:textStyle="bold"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="none"/>
 </LinearLayout>
