@@ -68,12 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(String response) {
                 System.out.println(response.toString());
-                if(url.equals(url_one)){
-                    setLoginResponse(response);
-                }
-                else if(url.equals(url_two)){
-                    setForgotPasswordResponse(response);
-                }
+                setLoginResponse(response);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -93,39 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Adding to Request Queue
         CustomVolleyApp.getInstance().addToRequestQueue(stringRequest);
     }
-
-    private void setForgotPasswordResponse(String res) {
-        JSONObject jsonObejct=null;
-        try {
-            jsonObejct=new JSONObject(res);
-        } catch (JSONException e) {
-            Snackbar snackbar = Snackbar
-                    .make(findViewById(R.id.view_pallet), "Internet Connection Error,try Again Later", Snackbar.LENGTH_LONG);
-            snackbar.show();
-            e.printStackTrace();
-        }
-        try {
-            String success=jsonObejct.getString("success");
-            /*if(success.equals("1")){
-                Intent i=new Intent(this,HomeActivity.class);
-                startActivity(i);
-            }
-            else if(success.equals("0")){
-                Snackbar snackbar = Snackbar
-                        .make(findViewById(R.id.view_pallet), "Entered Email is incorrect", Snackbar.LENGTH_LONG);
-                snackbar.show();
-            }
-            else{
-                Snackbar snackbar = Snackbar
-                        .make(findViewById(R.id.view_pallet), "Internet Connection Error,try Again Later", Snackbar.LENGTH_LONG);
-                snackbar.show();
-            }*/
-            System.out.println(success);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
     ///Setting Up what happens to the login response
     public void setLoginResponse(String res){
         JSONObject jsonObejct=null;
@@ -166,31 +128,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent i=new Intent(this,SignUpActivity.class);
                 startActivity(i);
             case R.id.forgot_pass:
-                Snackbar snackbar = Snackbar
-                        .make(view, "Want to Restore Password ?", Snackbar.LENGTH_LONG)
-                        .setAction("RESTORE", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                u_email=email_wrapper.getEditText().getText().toString();
-                                u_password=password_wrapper.getEditText().getText().toString();
-                                if(u_email.equals("")){
-                                    Snackbar snackbar1 = Snackbar.make(view, "Please Enter your Email !!", Snackbar.LENGTH_LONG);
-                                    snackbar1.show();
-                                }
-                                else{
-                                    makeCustomHttpCalls(url_two,u_email,u_password);
-                                    Snackbar snackbar1 = Snackbar.make(view, "Check Your Email !!", Snackbar.LENGTH_LONG);
-                                    snackbar1.show();
-                                }
-                            }
-                        });
-                snackbar.show();
+
             case R.id.login_submit:
                 ///Getting Content
                 u_email=email_wrapper.getEditText().getText().toString();
                 u_password=password_wrapper.getEditText().getText().toString();
                 makeCustomHttpCalls(url_one,u_email,u_password);
-                //Toast.makeText(getApplicationContext(),"Email: "+u_email+", Password: "+u_password,Toast.LENGTH_LONG).show();
+
         }
     }
 }
