@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/view_pallet"
     android:orientation="vertical"
     tools:context="com.example.adi.news_app.MainActivity">
     <include
@@ -16,10 +17,17 @@
         android:orientation="vertical"
         android:padding="10sp"
         android:layout_marginTop="25sp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"
+            android:paddingBottom="15sp"/>
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/email_wrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <AutoCompleteTextView
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,10 +36,11 @@
                 android:inputType="textEmailAddress"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/password_wrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp">
-            <AutoCompleteTextView
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,45 +59,30 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:background="@drawable/button_ripple"/>
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:orientation="horizontal"
         android:padding="10sp"
-        android:weightSum="1">
+        android:layout_marginTop="25sp">
         <TextView
+            android:id="@+id/sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Haven't Registered yet ???"
-            android:layout_gravity="left"/>
-
-        <TextView
-            android:id="@+id/register_trigger"
-            android:layout_width="62dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginLeft="25sp"
-            android:text="Register Now"
-            android:layout_weight="1"
+            android:text="SignUp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10sp">
+            android:textColor="@color/colorPrimary"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_weight="1"/>
         <TextView
-            android:id="@+id/forgot_pw"
-            android:layout_width="match_parent"
+            android:id="@+id/forgot_pass"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forgot Password !"
-            android:textColor="#ff4d58"
-            android:textStyle="bold"/>
-    </LinearLayout>
-    <TextView
-        android:id="@+id/response"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="none"/>
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/holo_red_light"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 </LinearLayout>
