@@ -29,7 +29,6 @@ import static com.example.adi.news_app.R.id.email;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Toolbar toolbar;
     private static final String url_one="https://adityasoni104.000webhostapp.com/news_api_one.php";
-    private static final String url_two="https://adityasoni104.000webhostapp.com/news_api_three.php";
     private Button login;
     private TextView sign_up,forgot_pass;
     private TextInputEditText user_email,user_password;
@@ -125,17 +124,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         id=view.getId();
         switch (id){
             case R.id.sign_up:
-                Intent i=new Intent(this,SignUpActivity.class);
-                startActivity(i);
+                Intent i1=new Intent(this,SignUpActivity.class);
+                startActivity(i1);
             case R.id.forgot_pass:
-
+                Intent i2=new Intent(this,ForgotPasswordActivity.class);
+                startActivity(i2);
             case R.id.login_submit:
                 ///Getting Content
                 u_email=email_wrapper.getEditText().getText().toString();
                 u_password=password_wrapper.getEditText().getText().toString();
                 ///Making Http Call
                 makeCustomHttpCalls(url_one,u_email,u_password);
-
         }
     }
 }
