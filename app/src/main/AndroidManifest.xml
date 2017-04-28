@@ -30,6 +30,8 @@
         <activity
             android:name=".ForgotPasswordActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".ContactDetails"
+            android:parentActivityName=".HomeActivity"/>
     </application>
 
 </manifest>
