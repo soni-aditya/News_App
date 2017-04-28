@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         forgot_pass.setOnClickListener(this);
         ///Initializing progress bar
         pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
+        pDialog.setMessage("Logging in...");
     }
     private void makeCustomHttpCalls(final String url,final String email,final String password) {
         pDialog.show();
@@ -74,7 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("Something Went Wrong !");
+                pDialog.dismiss();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.view_pallet), "Internet Connection Error,try Again Later", Snackbar.LENGTH_LONG);
+                snackbar.show();
                 error.printStackTrace();
             }
         }){
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else if(success.equals("0")){
                 pDialog.dismiss();
                 Snackbar snackbar = Snackbar
-                        .make(findViewById(R.id.view_pallet), "Eighter Email or Password is incorrect", Snackbar.LENGTH_LONG);
+                        .make(findViewById(R.id.view_pallet), "Either Email or Password is incorrect", Snackbar.LENGTH_LONG);
                 snackbar.show();
             }
             else{
@@ -137,12 +140,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sign_up:
                 Intent i1=new Intent(this,SignUpActivity.class);
                 startActivity(i1);
-                finish();
                 break;
             case R.id.forgot_pass:
                 Intent i2=new Intent(this,ForgotPasswordActivity.class);
                 startActivity(i2);
-                finish();
                 break;
         }
     }

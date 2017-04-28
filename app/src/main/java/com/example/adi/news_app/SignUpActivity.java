@@ -43,6 +43,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         //Setting Up the toolbar
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Initializing Components
         email_wrapper=(TextInputLayout)findViewById(R.id.email_wrapper);
         send_password=(Button)findViewById(R.id.submit);
@@ -50,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         send_password.setOnClickListener(this);
         ///Initializing progress bar
         pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
+        pDialog.setMessage("Sending Password...");
     }
     private void makeCustomHttpCalls(final String url,final String email) {
         pDialog.show();

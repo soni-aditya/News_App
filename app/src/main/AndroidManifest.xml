@@ -23,9 +23,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignUpActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
