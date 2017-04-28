@@ -17,4 +17,39 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Sample data to test the cardview in news headlines-->
+    <string-array name="person_name">
+        <item>"Person-1"</item>
+        <item>"Person-2"</item>
+        <item>"Person-3"</item>
+        <item>"Person-4"</item>
+        <item>"Person-5"</item>
+        <item>"Person-6"</item>
+        <item>"Person-7"</item>
+        <item>"Person-8"</item>
+        <item>"Person-9"</item>
+    </string-array>
+    <string-array name="person_email">
+        <item>"person1@gmail.com"</item>
+        <item>"person2@gmail.com"</item>
+        <item>"person3@gmail.com"</item>
+        <item>"person4@gmail.com"</item>
+        <item>"person5@gmail.com"</item>
+        <item>"person6@gmail.com"</item>
+        <item>"person7@gmail.com"</item>
+        <item>"person8@gmail.com"</item>
+        <item>"person9@gmail.com"</item>
+    </string-array>
+    <string-array name="person_mobile">
+        <item>"9999999991"</item>
+        <item>"9999999992"</item>
+        <item>"9999999993"</item>
+        <item>"9999999994"</item>
+        <item>"9999999995"</item>
+        <item>"9999999996"</item>
+        <item>"9999999997"</item>
+        <item>"9999999998"</item>
+        <item>"9999999999"</item>
+    </string-array>
+    <string name="title_activity_news_details">NewsDetailsActivity</string>
 </resources>
